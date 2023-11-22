@@ -9,90 +9,90 @@ class NNStreamerTest(OERuntimeTestCase):
     def test_nnstreamer(self):
         # unittest_common
         cmd = 'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_common'
+            '/usr/bin/unittest-nnstreamer/tests/unittest_common'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_common ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_common ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_sink
         cmd = 'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_sink -d /usr/lib/nnstreamer/customfilters --gst-plugin-path=/usr/lib/gstreamer-1.0'
+            '/usr/bin/unittest-nnstreamer/tests/unittest_sink -d /usr/lib/nnstreamer/customfilters --gst-plugin-path=/usr/lib/gstreamer-1.0'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_sink ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_sink ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_plugins
         cmd = 'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
-        'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_plugins --gst-plugin-path=/usr/lib/gstreamer-1.0'
+            'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer ' \
+            '/usr/bin/unittest-nnstreamer/tests/unittest_plugins --gst-plugin-path=/usr/lib/gstreamer-1.0'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_plugins ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_plugins ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_src_iio
         cmd = 'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_src_iio --gst-plugin-path=/usr/lib/gstreamer-1.0'
+            '/usr/bin/unittest-nnstreamer/tests/unittest_src_iio --gst-plugin-path=/usr/lib/gstreamer-1.0'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_src_iio ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_src_iio ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_if
         cmd = 'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_if --gst-plugin-path=/usr/lib/gstreamer-1.0'
+            '/usr/bin/unittest-nnstreamer/tests/unittest_if --gst-plugin-path=/usr/lib/gstreamer-1.0'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_if ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_if ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_join
         cmd = 'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_join --gst-plugin-path=/usr/lib/gstreamer-1.0'
+            '/usr/bin/unittest-nnstreamer/tests/unittest_join --gst-plugin-path=/usr/lib/gstreamer-1.0'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_join ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_join ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_rate
         cmd = 'mkdir -p /usr/bin/unittest-nnstreamer/tests/build/tests/nnstreamer_example; '\
-        'cp /usr/lib/nnstreamer/customfilters/* /usr/bin/unittest-nnstreamer/tests/build/tests/nnstreamer_example/; ' \
-        'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer/tests ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_rate; ' \
-        'rm -rf /usr/bin/unittest-nnstreamer/tests/build'
+            'cp /usr/lib/nnstreamer/customfilters/* /usr/bin/unittest-nnstreamer/tests/build/tests/nnstreamer_example/; ' \
+            'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer/tests ' \
+            '/usr/bin/unittest-nnstreamer/tests/unittest_rate; ' \
+            'rm -rf /usr/bin/unittest-nnstreamer/tests/build'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_rate ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_rate ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_tizen_capi
         cmd = 'mkdir -p /usr/bin/unittest-nnstreamer/tests/build/tests/nnstreamer_example; ' \
-        'cp /usr/lib/nnstreamer/customfilters/* /usr/bin/unittest-nnstreamer/tests/build/tests/nnstreamer_example/; ' \
-        'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
-        'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer ' \
-        'NNSTREAMER_BUILD_ROOT_PATH=/usr/bin/unittest-nnstreamer/tests/build ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_tizen_capi --gst-plugin-path=/usr/lib/gstreamer-1.0; ' \
-        'rm -rf /usr/bin/unittest-nnstreamer/tests/build'
+            'cp /usr/lib/nnstreamer/customfilters/* /usr/bin/unittest-nnstreamer/tests/build/tests/nnstreamer_example/; ' \
+            'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
+            'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer ' \
+            'NNSTREAMER_BUILD_ROOT_PATH=/usr/bin/unittest-nnstreamer/tests/build ' \
+            '/usr/bin/unittest-nnstreamer/tests/unittest_tizen_capi --gst-plugin-path=/usr/lib/gstreamer-1.0; ' \
+            'rm -rf /usr/bin/unittest-nnstreamer/tests/build'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_tizen_capi ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_tizen_capi ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_cppfilter
         cmd = 'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:/usr/lib/nnstreamer/filters/:$LD_LIBRARY_PATH ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_cppfilter --gst-plugin-path=/usr/lib/gstreamer-1.0'
+            '/usr/bin/unittest-nnstreamer/tests/unittest_cppfilter --gst-plugin-path=/usr/lib/gstreamer-1.0'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_cppfilter ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_cppfilter ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_tizen_tensorflow_lite
         cmd = 'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
-        'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_tizen_tensorflow_lite --gst-plugin-path=/usr/lib/gstreamer-1.0'
+            'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer ' \
+            '/usr/bin/unittest-nnstreamer/tests/unittest_tizen_tensorflow_lite --gst-plugin-path=/usr/lib/gstreamer-1.0'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_tizen_tensorflow_lite ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_tizen_tensorflow_lite ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # unittest_tizen_tensorflow_lite-set
         cmd = 'LD_LIBRARY_PATH=/usr/lib/gstreamer-1.0:$LD_LIBRARY_PATH ' \
-        'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer ' \
-        '/usr/bin/unittest-nnstreamer/tests/unittest_tizen_tensorflow_lite-set --gst-plugin-path=/usr/lib/gstreamer-1.0'
+            'NNSTREAMER_SOURCE_ROOT_PATH=/usr/bin/unittest-nnstreamer ' \
+            '/usr/bin/unittest-nnstreamer/tests/unittest_tizen_tensorflow_lite-set --gst-plugin-path=/usr/lib/gstreamer-1.0'
         (status, output) = self.target.run(cmd)
-        msg = " NNSTREAMER UNITTEST FAILED ( unittest_tizen_tensorflow_lite-set ): %s" % output
+        msg = f" NNSTREAMER UNITTEST FAILED ( unittest_tizen_tensorflow_lite-set ): {output}"
         self.assertEqual(status, 0, msg=msg)
 
         # You may not want to do SSAT test. It takes VERY LONG TIME to be done.
